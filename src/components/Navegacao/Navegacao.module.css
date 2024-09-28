@@ -1,0 +1,85 @@
+:root {
+  --amareloClaro: #ffeba7;
+  --cinzaEscuro: #212529;
+  --cinzaAzulado: #343A40;
+  --cinzaAvermelhado: #333;
+  --branco: #FFFFFF;
+  --cinzaClaro: #ccc;
+  --amareloEscuro: #b39f72;
+  --preto: #000000;
+}
+
+/* Define o estilo para a barra de navegação */
+.CtnNavbar {
+  background-color: var(--cinzaEscuro);
+  /* Um tom de cinza escuro */
+  padding: 10px;
+  /* Adiciona algum padding */
+}
+
+::after {
+  color: var(--amareloClaro);
+}
+
+/* Define o estilo para o texto e links na barra de navegação */
+
+
+/* Define o estilo para a imagem do logo */
+.logoImage {
+  width: 70px;
+  /* Aumenta o tamanho da imagem */
+  height: 70px;
+  /* Aumenta o tamanho da imagem */
+  border-radius: 50%;
+  /* Torna a imagem circular */
+  margin-right: 10px;
+  /* Espaçamento entre a imagem e o texto */
+}
+
+/* Define o estilo para os links de navegação */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item,
+.navbar-brand {
+  color: var(--amareloClaro);
+  /* Cor #ffeba7 para os links de navegação */
+  font-size: 16px;
+  /* Define o tamanho da fonte para os links e itens do dropdown */
+}
+
+/* Define o estilo para os links de navegação ao passar o mouse */
+
+.navbar,
+a {
+  display: flex;
+  align-items: center;
+  color: var(--amareloClaro) !important;
+  /* Cor do texto */
+  text-decoration: none;
+  justify-content: center;
+  /* Remove sublinhado dos links */
+  font-size: 16px;
+  /* Define o tamanho da fonte para todos os textos na barra de navegação */
+  font-family: "Archivo Black", sans-serif;
+  /* Define a fonte */
+}
+
+.navDropdown {
+  color: var(--cinzaAzulado) !important;
+}
+
+/* styles.css ou qualquer outro nome do seu arquivo CSS */
+.navbar-toggler {
+  color: white;
+  /* Cor do texto */
+  background-color: white;
+  /* Cor de fundo */
+  border: none;
+  /* Se você quiser remover a borda */
+}
+.botao{
+  color:var(--amareloClaro)!important;
+  background-color: var(--cinzaAvermelhado)!important;
+  border-color: var(--amareloClaro)!important;
+}
+
+

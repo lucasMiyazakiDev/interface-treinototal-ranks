@@ -1,0 +1,90 @@
+/* Importa a fonte 'Caesar Dressing' do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+
+/* Importa os estilos do Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --amareloClaro: #ffeba7;
+  --cinzaEscuro: #212529;
+  --cinzaAzulado: #343A40;
+  --cinzaAvermelhado: #333;
+  --branco: #FFFFFF;
+  --cinzaClaro: #ccc;
+  --amareloEscuro: #b39f72;
+  --preto: #000000;
+}
+
+#root {
+  background-color: var(--cinzaAzulado);
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Define a fonte padrão */
+  line-height: 1.5;
+  /* Define a altura da linha */
+  font-weight: 400;
+  /* Define o peso da fonte */
+  color-scheme: light dark;
+  /* Define a cor de texto padrão */
+  font-synthesis: none;
+  /* Evita a síntese de fontes */
+  text-rendering: optimizeLegibility;
+  /* Otimiza a legibilidade do texto */
+  -webkit-font-smoothing: antialiased;
+  /* Suaviza as bordas das fontes no WebKit */
+  -moz-osx-font-smoothing: grayscale;
+  /* Suaviza as bordas das fontes no macOS */
+}
+
+::selection {
+  color: var(--cinzaAvermelhado);
+  background-color: var(--amareloClaro);
+}
+
+/* Estilos para o corpo do documento */
+body {
+  margin: 0;
+  /* Remove as margens padrão */
+  display: flex;
+  /* Usa um layout flexível */
+  min-width: 320px;
+  /* Define a largura mínima do corpo */
+  min-height: 100vh;
+  /* Define a altura mínima do corpo como 100% da altura da viewport */
+}
+
+.input {
+  background-color: var(--amareloClaro)!important;
+  color: var(--preto)!important;
+  font-size: 18px;
+  border-radius: 15px;
+}
+
+/* Estilos para um grupo de formulário genérico */
+.formGroup {
+  margin-bottom: 20px;
+  /* Margem inferior */
+}
+
+.form-floating>.form-control-plaintext~label::after,
+.form-floating>.form-control:focus~label::after,
+.form-floating>.form-control:not(:placeholder-shown)~label::after,
+.form-floating>.form-select~label::after {
+    background-color: transparent !important;
+}
+
+.form-floating>.form-control,
+.form-floating>.form-control-plaintext {
+    padding: 30px !important;
+}
+
+.form-floating>.form-control-plaintext~label,
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-select~label {
+    color: rgb(80, 79, 79) !important;
+    font-size: 1.2rem;
+    margin-top: -8px;
+}

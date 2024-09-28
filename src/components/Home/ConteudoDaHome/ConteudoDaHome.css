@@ -1,0 +1,57 @@
+/* Define variáveis de cor para reutilização */
+:root {
+    --amareloClaro: #ffeba7;
+    --cinzaEscuro: #212529;
+    --cinzaAzulado: #343A40;
+    --cinzaAvermelhado: #333;
+    --branco: #FFFFFF;
+    --cinzaClaro: #ccc;
+    --amareloEscuro: #b39f72;
+    --preto: #000000;
+}
+
+/* Estilos para um título genérico */
+.titulo {
+    text-align: center;
+    /* Alinha o texto ao centro */
+    color: var(--amareloClaro);
+    /* Define a cor do texto */
+    font-family: "Archivo Black", sans-serif;
+    /* Define a fonte */
+    font-weight: 400;
+    /* Define o peso da fonte */
+    font-style: normal;
+    /* Define o estilo da fonte */
+}
+
+/* Estilos para o conteúdo dentro de uma div */
+.div-conteudo {
+    margin-left: 10%;
+    /* Define uma margem à esquerda */
+    width: 80%;
+    /* Define a largura */
+}
+
+/* Estilos para a classe 'home' */
+.home {
+    margin-top: 5%;
+    /* Define uma margem superior */
+}
+
+/* Estilos para parágrafos */
+.paragrafo {
+    width: 95%;
+    /* Define a largura */
+    font-size: 1.2rem;
+    /* Define o tamanho da fonte */
+    text-align: justify;
+    /* Justifica o texto */
+    margin-left: 3%;
+    /* Define uma margem à esquerda */
+    height: 80%;
+    /* Define a altura */
+    color: var(--amareloClaro);
+    /* Define a cor do texto */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Define a fonte */
+}

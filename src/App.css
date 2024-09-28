@@ -1,0 +1,20 @@
+/* :root {
+  --amareloClaro: #ffeba7;
+  --cinzaEscuro: #212529;
+  --cinzaAzulado: #343A40;
+  --cinzaAvermelhado: #333;
+  --branco: #FFFFFF;
+  --cinzaClaro: #ccc;
+  --amareloEscuro: #b39f72;
+  --preto: #000000;
+} */
+
+/* Define o estilo para o contêiner principal */
+#root {
+  width: 100%;
+  /* largura total */
+  margin: 0 auto;
+  /* centralizado horizontalmente */
+  text-align: center;
+  /* alinha o texto e elementos filhos ao centro */
+}
