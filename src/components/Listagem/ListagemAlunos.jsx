@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/StyleListagem.module.css';
 import AlunoRequests from '../../fetch/AlunoRequests';
+import { FaTrash, FaRegEdit, FaInfoCircle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { formatadorData } from "../../../util/Utilitarios";
+import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from "react-icons/md";
 
+/**
+ * Componente funcional para listar alunos
+ * @returns JSX.Element
+ */
 function ListarAluno() {
     const [alunos, setAlunos] = useState([]);
     const [alunosFiltrados, setAlunosFiltrados] = useState([]);
     const [search, setSearch] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
+    const [paginaAtual, setPaginaAtual] = useState(1);
+    const itensPorPagina = 5;
     const navigate = useNavigate();
 
     useEffect(() => {
-        const userType = localStorage.getItem('userType');
-
-        if (userType === 'aluno') {
-            const alunoId = localStorage.getItem('alunoId'); 
-            navigate(`/card/aluno`, { state: { alunoId }, replace: true });
-        } else {
-            const fetchAlunos = async () => {
-                try {
-                    const aluno = await AlunoRequests.listarAlunos();
-                    setAlunos(aluno);
-                    setAlunosFiltrados(aluno);
-                    setIsLoading(false);
-                } catch (error) {
-                    console.error('Erro ao buscar alunos: ', error);
-                    setIsLoading(false);
-                }
-            };
-            fetchAlunos();
-        }
-    }, [navigate]);
+        const fetchAlunos = async () => {
+            try {
+                const aluno = await AlunoRequests.listarAlunos();
+                setAlunos(aluno);
+                setAlunosFiltrados(aluno);
+            } catch (error) {
+                console.error('Erro ao buscar alunos: ', error);
+            }
+        };
+        fetchAlunos();
+    }, []);
 
     useEffect(() => {
         if (search === '') {
@@ -43,7 +42,39 @@ function ListarAluno() {
         }
     }, [search, alunos]);
 
-    if (isLoading) return <p>Carregando...</p>;
+    const formatarCPF = (cpf) => cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+
+    const formatarTelefone = (telefone) => telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+
+    const deleteAluno = (aluno) => {
+        const deletar = window.confirm(`Deseja mesmo remover o registro ${aluno.nome}? Essa operação é irreversível!`);
+
+        if (deletar) {
+            if (AlunoRequests.deletarAluno(aluno.id_aluno)) {
+                window.alert(`Registro ${aluno.nome} removido com sucesso.`);
+            } else {
+                window.alert(`Falha ao remover ${aluno.nome}.`);
+            }
+            window.location.reload();
+        }
+    };
+
+    const updateAluno = (aluno) => {
+        navigate(`/update/aluno`, { state: { objeto: aluno }, replace: true });
+    };
+
+    const handleAlunoClick = (aluno) => {
+        navigate(`/card/aluno`, { state: { objeto: aluno }, replace: true });
+    };
+
+    const indiceUltimoItem = paginaAtual * itensPorPagina;
+    const indicePrimeiroItem = indiceUltimoItem - itensPorPagina;
+    const alunosPaginados = alunosFiltrados.slice(indicePrimeiroItem, indiceUltimoItem);
+    const totalPaginas = Math.ceil(alunosFiltrados.length / itensPorPagina);
+
+    const mudarPagina = (novaPagina) => {
+        setPaginaAtual(novaPagina);
+    };
 
     return (
         <div className="content">

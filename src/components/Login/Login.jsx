@@ -23,7 +23,7 @@ function Login() {
             const response = await AuthRequests.login(formLogin);
             if (response.auth) {
                 setTimeout(() => {
-                    AuthRequests.persistToken(response.token);
+                    AuthRequests.persistToken(response.token, response.userType);
                 }, 1000);
                 window.location.href = '/';
             } else {
